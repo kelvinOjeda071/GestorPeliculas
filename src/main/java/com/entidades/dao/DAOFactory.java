@@ -9,5 +9,6 @@ public abstract class DAOFactory {
 	}
 	
 	public abstract PeliculaDAO getPeliculaDAO();
+	public abstract PersonaDAO getPersonaDAO();
 	
 }
