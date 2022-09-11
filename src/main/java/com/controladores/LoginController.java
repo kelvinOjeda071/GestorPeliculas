@@ -38,12 +38,18 @@ public class LoginController extends HttpServlet {
 
 		// 3.- Redirecciono a la Vista
 		if (personaAutorizada != null) {
-
-			// Crear la sessión
-//			HttpSession session = request.getSession();
-//			session.setAttribute("usuarioLogeado", personaAutorizada);
+			HttpSession session = request.getSession();
+			session.setAttribute("usuarioLogeado", personaAutorizada);
 			System.out.println("Ingreso");
-//			request.getRequestDispatcher("/MenuOpcionesController").forward(request, response);
+			switch (tipo) {
+			case "Administrador": {
+				request.getRequestDispatcher("/ListarPeliculasController").forward(request, response);
+				break;
+			}
+			default:
+				System.out.println("Ingrese el tipo de usuario");
+			}
+
 		} else {
 			response.sendRedirect("jsp/login.jsp");
 			System.out.println("No pudo ingresar");

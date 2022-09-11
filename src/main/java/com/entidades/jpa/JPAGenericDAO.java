@@ -45,9 +45,13 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID>{
 	public void delete(T p) {
 		em.getTransaction().begin();
 		try {
+			if (!em.contains(p)) {
+			    p = em.merge(p);
+			}
 			em.remove(p);
 			em.getTransaction().commit();
 		} catch (Exception ex) {
+			System.out.println(ex);
 			if(em.getTransaction().isActive())
 				em.getTransaction().rollback();
 		}

@@ -12,7 +12,7 @@ public class TestJPA {
 		String password = "123";
 		String correo = "kelvin.ojeda@epn.edu.ec";
 		String tipo = "Administrador";
-		Persona persona1 = new Persona(1, name, password, correo, tipo);
+		Persona persona1 = new Persona(name, password, correo, tipo);
 		DAOFactory.getFactory().getPersonaDAO().create(persona1);
 		String nombre1 = "Tiburon Martillo";
 		int anio = 1940;

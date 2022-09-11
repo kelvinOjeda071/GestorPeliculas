@@ -25,9 +25,7 @@ public class Persona {
 	private String tipo;
 
 
-	public Persona(int id, String nombre, String password, String correo, String tipo) {
-		super();
-		this.id = id;
+	public Persona( String nombre, String password, String correo, String tipo) {
 		this.nombre = nombre;
 		this.password = password;
 		this.correo = correo;
