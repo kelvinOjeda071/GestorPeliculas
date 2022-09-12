@@ -55,7 +55,7 @@
 					<p>Fotografía</p>
 					<input name="fileInput" class="inputs" type="file" id="file"
 						required accept="image/png, image/jpeg"
-						oninvalid="this.setCustomValidity('Por favor seleccione una fotografía')" />
+						 />
 					<br> <br> <br> <input type="submit" value="Insertar" />
 				</fieldset>
 			</form>

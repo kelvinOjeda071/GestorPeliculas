@@ -35,9 +35,9 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID>{
 
 	
 	public boolean update(T p) {
-		t.begin();
+		em.getTransaction().begin();
 		em.merge(p);
-		t.commit();
+		em.getTransaction().commit();
 		return false;
 	}
 

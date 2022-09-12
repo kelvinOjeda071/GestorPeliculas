@@ -48,23 +48,32 @@
 					<select name="genero" id="genero" required
 						oninvalid="this.setCustomValidity('Por favor seleccione un género de película')">
 						<option value="Acción"
-							${pelicula.genero=="Acción" ? "selected": ''}>Acción</option>
+							${pelicula.genero=="Acción" ? "selected" : '' }>Acción</option>
 						<option value="Comedia"
-							${pelicula.genero=="Comedia" ? "selected": ''}>Comedia</option>
-						<option value="Drama" ${pelicula.genero=="Drama" ? "selected": ''}>Drama</option>
+							${pelicula.genero=="Comedia" ? "selected" : '' }>Comedia</option>
+						<option value="Drama"
+							${pelicula.genero=="Drama" ? "selected" : '' }>Drama</option>
 						<option value="Terror"
-							${pelicula.genero=="Terror" ? "selected": ''}>Terror</option>
+							${pelicula.genero=="Terror" ? "selected" : '' }>Terror</option>
 						<option value="Ciencia Ficción"
-							${pelicula.genero=="Ciencia Ficción" ? "selected": ''}>Ciencia
+							${pelicula.genero=="Ciencia Ficción" ? "selected" : '' }>Ciencia
 							Ficción</option>
 						<option value="Romance"
-							${pelicula.genero=="Romance" ? "selected": ''}>Romance</option>
+							${pelicula.genero=="Romance" ? "selected" : '' }>Romance</option>
 						<option value="Musical"
-							${pelicula.genero=="Musical" ? "selected": ''}>Musical</option>
+							${pelicula.genero=="Musical" ? "selected" : '' }>Musical</option>
 						<option value="Documental"
-							${pelicula.genero=="Documental" ? "selected": ''}>Documental</option>
+							${pelicula.genero=="Documental" ? "selected" : '' }>Documental</option>
 						<option value="Infantil"
-							${pelicula.genero=="Infantil" ? "selected": ''}>Infantil</option>
+							${pelicula.genero=="Infantil" ? "selected" : '' }>Infantil</option>
+					</select>
+					<p>Estado</p>
+					<select name="estado" requered>
+						<option value="Disponible"
+							${pelicula.estado=="Disponible" ? "selected" : '' }>Disponible</option>
+						<option value="No Disponible"
+							${pelicula.estado=="No Disponible" ? "selected" : '' }>No
+							Disponible</option>
 					</select> <br> <br> <br> <input type="submit"
 						value="Actualizar" />
 				</fieldset>

@@ -49,9 +49,7 @@ td {
 					<td scope="col">Año de estreno</td>
 					<td scope="col">Calificación</td>
 					<td scope="col">Género</td>
-					<td scope="col">Estado</td>
 					<td scope="col">Poster</td>
-					<td scope="col">Persona que alquiló</td>
 					<td scope="col"></td>
 				</tr>
 			</thead>
@@ -64,12 +62,10 @@ td {
 					<td>${pelicula.anioPublicacion}</td>
 					<td>${pelicula.calificacion}</td>
 					<td>${pelicula.genero}</td>
-					<td>${pelicula.estado}</td>
 					<td><img src="img/${pelicula.pathImage}" width="75px"></td>
-					<td>${pelicula.alquilador.nombre}</td>
 					<td><a
-						href="ActualizarPeliculaController?idPelicula=${pelicula.id}">Actualizar</a>
-						| <a href="EliminarPeliculaController?idPelicula=${pelicula.id}">Eliminar</a></td>
+						href="AlquilarPeliculaController?idPelicula=${pelicula.id}">Alquilar</a>
+						</td>
 
 				</tr>
 
