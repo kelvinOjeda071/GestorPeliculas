@@ -25,7 +25,6 @@ public class AlquilarPeliculaController extends HttpServlet {
 		Persona personaIngresada = (Persona) request.getSession().getAttribute("usuarioLogeado");
 		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
 		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(idPelicula);
-		System.out.println("Persona ingresada " + personaIngresada);
 		pelicula.setEstado("No Disponible");
 		DAOFactory.getFactory().getPeliculaDAO().update(pelicula);
 		DAOFactory.getFactory().getPeliculaDAO().setAlquilador(idPelicula, personaIngresada);

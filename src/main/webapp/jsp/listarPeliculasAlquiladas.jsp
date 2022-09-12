@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Listar Películas</title>
+<title>Listar Películas Alquiladas</title>
 <style>
 table, th, td {
 	border: 1px solid black;
@@ -37,7 +37,7 @@ td {
 
 	<h1>Listado de Películas</h1>
 	<div>
-		<a href="ListarPeliculasAlquiladas">Lista de películas alquiladas</a>
+		<a href="ListarPeliculasController">Lista de películas</a>
 	</div>
 
 	<div class="wrapper">
@@ -54,7 +54,7 @@ td {
 				</tr>
 			</thead>
 
-			<c:forEach items="${peliculas}" var="pelicula">
+			<c:forEach items="${peliculasAlquiladas}" var="pelicula">
 				<tr>
 
 					<td>${pelicula.id}</td>
@@ -64,7 +64,7 @@ td {
 					<td>${pelicula.genero}</td>
 					<td><img src="img/${pelicula.pathImage}" width="75px"></td>
 					<td><a
-						href="AlquilarPeliculaController?idPelicula=${pelicula.id}">Alquilar</a>
+						href="DevolverPeliculaController?idPelicula=${pelicula.id}">Devolver</a>
 						</td>
 
 				</tr>
