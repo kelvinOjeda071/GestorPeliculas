@@ -32,21 +32,19 @@
 
 	<div class="wrapper">
 		<div class="formContent">
-			<form method="post" action="../LoginController">
+			<form method="post" action="../CrearCuentaController">
 				<fieldset>
-					<legend>Log in</legend>
-					<p>Tipo de usuario</p>
-					<select name="tipo" id="tipo">
-						<option value="Administrador">Administrador</option>
-						<option value="Usuario">Usuario</option>
-					</select>
+					<legend>Crear cuenta</legend>
+					<input type="text" name="tipo" hidden value="Usuario" />
 					<p>Correo</p>
-					<input type="email" name="correo" />
+					<input type="email" name="correo" required />
+					<p>Nombre de usuario</p>
+					<input type="text" name="nombre" required />
 					<p>Password</p>
-					<input type="password" name="password" /> <br> <br> <br>
-					<input type="submit" value="Ingresar" />
+					<input type="password" name="password" required /> <br> <br>
+					<br> <input type="submit" value="Crear cuenta" />
 					<div>
-						<a href="../CrearCuentaController">Crear cuenta</a>
+						<a href="LoginController">Log in</a>
 					</div>
 				</fieldset>
 			</form>

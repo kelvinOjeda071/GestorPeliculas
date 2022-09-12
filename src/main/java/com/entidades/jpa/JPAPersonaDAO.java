@@ -33,4 +33,18 @@ public class JPAPersonaDAO extends JPAGenericDAO<Persona, Integer> implements Pe
 
 	}
 
+	@Override
+	public Persona comprobarCreacionDeUsuario(String correo, String tipo) {
+		String sentenciaJPQL = "SELECT p FROM Persona p WHERE p.correo = :p1  AND p.tipo = :p2";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", correo);
+		query.setParameter("p2", tipo);
+		try {
+			Persona personaConsultada = (Persona) query.getSingleResult();
+			return personaConsultada;
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
 }
