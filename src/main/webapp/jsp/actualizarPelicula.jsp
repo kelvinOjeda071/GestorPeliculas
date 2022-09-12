@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Actualizar Persona</title>
+<title>Actualizar Película</title>
 
 <!-- CSS only -->
 <link
@@ -21,14 +21,14 @@
 
 <body>
 
-
+	<%@include file="../templates/banner_interno.html"%>
 
 
 	<div class="wrapper">
 		<div class="formContent">
 			<form method="post" action="ActualizarPeliculaController">
 				<fieldset>
-					<legend>Actualizar Peliculas</legend>
+					<legend>Actualizar Películas</legend>
 					<input type="text" hidden name="id" value="${pelicula.id }" />
 					<p>Nombre de película</p>
 					<input type="text" name="nombre" value="${pelicula.nombre }"
@@ -40,7 +40,7 @@
 						value="${pelicula.calificacion }" required
 						oninvalid="this.setCustomValidity('Por favor seleccione un valor entere 0 a 5')">
 					<p>Fecha de estreno</p>
-					<input type="number" name="anio" min="1900" max="2022" step="1"
+					<input type="number" name="anio" id="anio" min="1900" step="1"
 						value="${pelicula.anioPublicacion }" required
 						oninvalid="this.setCustomValidity('Por favor seleccione un año')" />
 					<!-- <input type="month" name="fechaEstreno" /> -->
@@ -82,7 +82,7 @@
 		var today = new Date();
 		var yyyy = today.getFullYear();
 		// Set the year of the input to the year of today
-		document.getElementById("anio").value = yyyy;
+		document.getElementById("anio").setAttribute('max', '' + yyyy)
 	</script>
 </body>
 

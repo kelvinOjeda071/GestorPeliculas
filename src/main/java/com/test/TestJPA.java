@@ -21,7 +21,7 @@ public class TestJPA {
 		String estado = "Disponible";
 		String pathImagen = "";
 //		List <Pelicula> peliculas = new ArrayList<>();
-		Pelicula p = new Pelicula(1, nombre1, anio, calificacion, genero, estado, pathImagen, persona1);
+		Pelicula p = new Pelicula( nombre1, anio, calificacion, genero, estado, pathImagen, persona1);
 //		peliculas.add(p);
 //		persona.setPeliculas(peliculas);
 //		DAOFactory.getFactory().getPersonaDAO().update(persona);

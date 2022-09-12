@@ -35,7 +35,7 @@
 								<option value="Usuario">Usuario</option>
 							</select>
                         <p>Correo</p>
-                        <input type="text" name="correo" />
+                        <input type="email" name="correo" />
                         <p>Password</p>
                         <input type="password" name="password" /> <br> <br> <br>
                         <input type="submit" value="Ingresar" />

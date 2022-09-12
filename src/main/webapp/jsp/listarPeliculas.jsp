@@ -46,6 +46,7 @@ td {
 				<tr class="fw-bold">
 					<td scope="col">#</td>
 					<td scope="col">Nombre Película</td>
+					<td scope="col">Año de estreno</td>
 					<td scope="col">Calificación</td>
 					<td scope="col">Género</td>
 					<td scope="col">Poster</td>
@@ -59,9 +60,10 @@ td {
 
 					<td>${pelicula.id}</td>
 					<td>${pelicula.nombre}</td>
+					<td>${pelicula.anioPublicacion}</td>
 					<td>${pelicula.calificacion}</td>
 					<td>${pelicula.genero}</td>
-					<td>${pelicula.pathImage}</td>
+					<td><img src="img/${pelicula.pathImage}" width="75px"></td>
 					<td>${pelicula.alquilador.nombre}</td>
 					<td><a
 						href="ActualizarPeliculaController?idPelicula=${pelicula.id}">Actualizar</a>

@@ -34,10 +34,9 @@ public class Pelicula {
 		super();
 	}
 
-	public Pelicula(int id, String nombre, int anioPublicacion, int calificacion, String genero, String estado,
+	public Pelicula( String nombre, int anioPublicacion, int calificacion, String genero, String estado,
 			String pathImage, Persona alquilador) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.anioPublicacion = anioPublicacion;
 		this.calificacion = calificacion;
