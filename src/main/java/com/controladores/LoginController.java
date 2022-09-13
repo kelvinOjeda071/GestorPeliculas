@@ -49,6 +49,7 @@ public class LoginController extends HttpServlet {
 			request.getRequestDispatcher("/ListarPeliculasController").forward(request, response);
 
 		} else {
+			// Se muestra un alert especificando las credenciales inválidas del usuario y redireccionando a la vista
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('El usuario o la contraseña ya no son válidas');");
 			out.println("location='jsp/login.jsp';");

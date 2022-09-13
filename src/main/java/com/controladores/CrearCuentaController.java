@@ -30,18 +30,21 @@ public class CrearCuentaController extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		Persona personaCreada = null;
+		// Se obtienen los parametros
 		String correo = request.getParameter("correo");
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		String tipo = request.getParameter("tipo");
-
+		// Se comunica con el modelo
 		personaCreada = DAOFactory.getFactory().getPersonaDAO().comprobarCreacionDeUsuario(correo, tipo);
 
 		if (personaCreada == null) {
 			personaCreada = new Persona(nombre, password, correo, tipo);
 			DAOFactory.getFactory().getPersonaDAO().create(personaCreada);
+			// Se envia a la vista
 			response.sendRedirect("jsp/login.jsp");
 		} else {
+			// Se muestra un alert especificando la existencia del usuario y redireccionando a la vista
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('El usuario ya existe');");
 			out.println("location='jsp/crearCuenta.jsp';");

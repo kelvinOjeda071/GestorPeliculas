@@ -34,7 +34,7 @@
                                 <input type="number" name="calificacion" class="form-control" min="0" max="5" required />
                             </div>
                             <div class="mb-3">
-                                <p class=" form-label">Fecha de estreno</p>
+                                <p class=" form-label">Año de estreno</p>
                                 <input type="number" name="anio" id="anio" class="form-control" min="1800" step="1" required />
                             </div>
                             <div class="mb-3">

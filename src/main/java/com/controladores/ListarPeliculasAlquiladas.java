@@ -22,9 +22,12 @@ public class ListarPeliculasAlquiladas extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Se obtienen los parametros
 		Persona personaIngresada = (Persona) request.getSession().getAttribute("usuarioLogeado");
+		// Se comunica con el modelo
 		List<Pelicula> peliculasAlquiladas = DAOFactory.getFactory().getPeliculaDAO().getPeliculasPorAlquilador(personaIngresada);
 		request.setAttribute("peliculasAlquiladas", peliculasAlquiladas);
+		// Se envia a la vista
 		request.getRequestDispatcher("/jsp/listarPeliculasAlquiladas.jsp").forward(request, response);
 	}
 

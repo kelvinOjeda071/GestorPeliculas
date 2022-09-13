@@ -27,7 +27,9 @@ public class OrdenarListaPeliculaController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Se obtienen los parametros
 		String ordernarPor = request.getParameter("ordenar");
+		// Se comunica con el modelo
 		List<Pelicula> peliculasPorOrden = DAOFactory.getFactory().getPeliculaDAO().getPeliculasDisponibles();
 		switch (ordernarPor) {
 		case "id": {
@@ -47,6 +49,7 @@ public class OrdenarListaPeliculaController extends HttpServlet {
 			break;
 		}
 		}
+		// Se envia a la vista
 		request.setAttribute("peliculasPorOrden", peliculasPorOrden);
 		request.getRequestDispatcher("/jsp/listarPeliculasPorOrden.jsp").forward(request, response);
 		

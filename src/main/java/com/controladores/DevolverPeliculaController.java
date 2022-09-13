@@ -19,11 +19,14 @@ public class DevolverPeliculaController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Se obtienen los parametros
 		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
+		// Se comunica con el modelo
 		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(idPelicula);
 		pelicula.setEstado("Disponible");
 		pelicula.setAlquilador(null);
 		DAOFactory.getFactory().getPeliculaDAO().update(pelicula);
+		// Se envia a la vista
 		response.sendRedirect("ListarPeliculasAlquiladas");
 	}
 

@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.entidades.Pelicula;
 import com.entidades.dao.DAOFactory;
 
-/**
- * Servlet implementation class EliminarPeliculaController
- */
 @WebServlet("/EliminarPeliculaController")
 public class EliminarPeliculaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,9 +22,12 @@ public class EliminarPeliculaController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		// Se obtienen los parametros
 		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
+		// Se comunica con el modelo
 		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(idPelicula);
 		DAOFactory.getFactory().getPeliculaDAO().delete(pelicula);
+		// Se muestra un alert para confiormar la eliminación de la pelicula y redireccionando a la vista
 		out.println("<script type=\"text/javascript\">");
 		out.println("alert('Está seguro que quiere eliminar la película ?');");
 		out.println("location='ListarPeliculasController';");

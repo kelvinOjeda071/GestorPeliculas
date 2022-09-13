@@ -16,8 +16,9 @@ public class LogoutController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Se obtienen los parametros para eliminar la session
 		request.getSession().invalidate();
-//		request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+		// Se envia a la vista
 		response.sendRedirect("LoginController");
 	}
 
