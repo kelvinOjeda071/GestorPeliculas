@@ -23,4 +23,43 @@ public class JPAPeliculaDAO extends JPAGenericDAO<Pelicula, Integer> implements 
 		return (List<Pelicula>) query.getResultList();
 	}
 
+	@Override
+	public List<Pelicula> getPeliculasDisponibles() {
+		String sentenciaJPQL = "SELECT p FROM Pelicula p WHERE p.estado = :p1";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", "Disponible");
+		return (List<Pelicula>) query.getResultList();
+	}
+
+	@Override
+	public void setAlquilador(Integer idPelicula, Persona p) {
+		em.getTransaction().begin();
+		String sentenciaJPQL = "UPDATE Pelicula p SET p.alquilador = :p1 WHERE p.id = :p2";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", p);
+		query.setParameter("p2", idPelicula);
+		 int updateCount = query.executeUpdate();
+		 System.out.println("Lineas modificadas "+ updateCount);
+		em.getTransaction().commit();
+		
+	}
+
+	@Override
+	public List<Pelicula> getPeliculasPorGenero(String genero) {
+		String sentenciaJPQL = "SELECT p FROM Pelicula p WHERE p.estado = :p1 AND p.genero = :p2";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", "Disponible");
+		query.setParameter("p2", genero);
+		return (List<Pelicula>) query.getResultList();
+	}
+
+	@Override
+	public List<Pelicula> getPeliculasPorNombre(String nombre) {
+		String sentenciaJPQL = "SELECT p FROM Pelicula p WHERE p.estado = :p1 AND p.nombre = :p2";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", "Disponible");
+		query.setParameter("p2", nombre);
+		return (List<Pelicula>) query.getResultList();
+	}
+
 }

@@ -2,10 +2,12 @@ package com.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.entidades.dao.DAOFactory;
@@ -13,7 +15,7 @@ import com.entidades.dao.DAOFactory;
 @Entity
 public class Persona {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "nombre")
 	private String nombre;
@@ -25,9 +27,7 @@ public class Persona {
 	private String tipo;
 
 
-	public Persona(int id, String nombre, String password, String correo, String tipo) {
-		super();
-		this.id = id;
+	public Persona( String nombre, String password, String correo, String tipo) {
 		this.nombre = nombre;
 		this.password = password;
 		this.correo = correo;
@@ -88,5 +88,24 @@ public class Persona {
 		return "Persona [id=" + id + ", nombre=" + nombre + ", password=" + password + ", correo=" + correo + ", tipo="
 				+ tipo +  "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(correo, id, nombre, password, tipo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(correo, other.correo) && id == other.id && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(password, other.password) && Objects.equals(tipo, other.tipo);
+	}
+	
 
 }

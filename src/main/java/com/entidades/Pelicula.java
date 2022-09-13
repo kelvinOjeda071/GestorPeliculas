@@ -1,5 +1,7 @@
 package com.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,10 +36,9 @@ public class Pelicula {
 		super();
 	}
 
-	public Pelicula(int id, String nombre, int anioPublicacion, int calificacion, String genero, String estado,
+	public Pelicula( String nombre, int anioPublicacion, int calificacion, String genero, String estado,
 			String pathImage, Persona alquilador) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.anioPublicacion = anioPublicacion;
 		this.calificacion = calificacion;
@@ -117,5 +118,27 @@ public class Pelicula {
 				+ calificacion + ", genero=" + genero + ", estado=" + estado + ", pathImage=" + pathImage
 				+ ", alquilador=" + alquilador + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(alquilador, anioPublicacion, calificacion, estado, genero, id, nombre, pathImage);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pelicula other = (Pelicula) obj;
+		return Objects.equals(alquilador, other.alquilador) && anioPublicacion == other.anioPublicacion
+				&& calificacion == other.calificacion && Objects.equals(estado, other.estado)
+				&& Objects.equals(genero, other.genero) && id == other.id && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(pathImage, other.pathImage);
+	}
+	
+	
 
 }
