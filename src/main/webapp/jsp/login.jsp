@@ -16,6 +16,8 @@
 <!-- CSS only -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 
@@ -23,36 +25,49 @@
 
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid d-flex justify-content-center">
-			<span class="navbar-brand mb-0 h1 d-flex justify-content-center">Gestor
-				de Películas</span>
+			<span class="material-symbols-outlined text-white"> movie </span><span
+				class="navbar-brand mb-0 h1 mx-3">Gestor de Películas</span>
 		</div>
 
 	</nav>
 
 
 	<div class="wrapper">
-		<div class="formContent">
+		<div class="formContent text-start">
 			<form method="post" action="../LoginController">
 				<fieldset>
-					<legend>Log in</legend>
-					<p>Tipo de usuario</p>
-					<select name="tipo" id="tipo">
-						<option value="Administrador">Administrador</option>
-						<option value="Usuario">Usuario</option>
-					</select>
-					<p>Correo</p>
-					<input type="email" name="correo" />
-					<p>Password</p>
-					<input type="password" name="password" /> <br> <br> <br>
-					<input type="submit" value="Ingresar" />
+					<legend class="text-center d-flex justify-content-center">
+						<span class="material-symbols-outlined mx-2 mt-1"> person </span>
+						<div>Log in</div>
+					</legend>
+					<div class="mb-3">
+						<p class="form-label">Tipo de usuario</p>
+						<select name="tipo" id="tipo" class="form-select">
+							<option value="Administrador">Administrador</option>
+							<option value="Usuario">Usuario</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<p class="form-label">Correo</p>
+						<input type="text" name="correo" class="form-control" />
+					</div>
+					<div class="mb-3">
+						<p class="form-label">Password</p>
+						<input type="password" name="password" class="form-control" />
+					</div>
+					<br> <input type="submit" class="btn btn-dark"
+						value="Ingresar " /> <br> <br>
 					<div>
-						<a href="../CrearCuentaController">Crear cuenta</a>
+						No tengo una cuenta? <a href="../CrearCuentaController"
+							class="text-secondary">Crear cuenta</a>
 					</div>
 				</fieldset>
 			</form>
 		</div>
 
 	</div>
+	<script src="https://kit.fontawesome.com/1dcb9ecca7.js"
+		crossorigin="anonymous"></script>
 	<!-- JavaScript Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
