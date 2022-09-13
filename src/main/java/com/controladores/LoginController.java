@@ -30,17 +30,17 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		Persona personaAutorizada = null;
-		// 1.- Obtener los parámetros
+		// Obtener los parámetros
 		String correo = request.getParameter("correo");
 		String password = request.getParameter("password");
 		String tipo = request.getParameter("tipo");
 
-		// 2.- Me comunico con el Modelo
+		// Me comunico con el Modelo
 		personaAutorizada = DAOFactory.getFactory().getPersonaDAO().autorinzarPersona(correo, password, tipo);
 		System.out.println(correo);
 		System.out.println(password);
 		System.out.println(tipo);
-		// 3.- Redirecciono a la Vista
+		// Redirecciono a la Vista
 		if (personaAutorizada != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("usuarioLogeado", personaAutorizada);
