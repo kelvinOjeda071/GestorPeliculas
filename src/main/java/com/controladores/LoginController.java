@@ -37,7 +37,9 @@ public class LoginController extends HttpServlet {
 
 		// 2.- Me comunico con el Modelo
 		personaAutorizada = DAOFactory.getFactory().getPersonaDAO().autorinzarPersona(correo, password, tipo);
-
+		System.out.println(correo);
+		System.out.println(password);
+		System.out.println(tipo);
 		// 3.- Redirecciono a la Vista
 		if (personaAutorizada != null) {
 			HttpSession session = request.getSession();
