@@ -23,11 +23,14 @@ public class AlquilarPeliculaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Persona personaIngresada = (Persona) request.getSession().getAttribute("usuarioLogeado");
+		// Se obtienen los parametros
 		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
+		// Se comunica con el modelo
 		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(idPelicula);
 		pelicula.setEstado("No Disponible");
 		DAOFactory.getFactory().getPeliculaDAO().update(pelicula);
 		DAOFactory.getFactory().getPeliculaDAO().setAlquilador(idPelicula, personaIngresada);
+		// Se envia a la vista
 		response.sendRedirect("ListarPeliculasController");
 	}
 

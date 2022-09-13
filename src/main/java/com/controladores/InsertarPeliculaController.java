@@ -50,7 +50,7 @@ public class InsertarPeliculaController extends HttpServlet {
 			out.println("Error: el formato de envio no es multipart");
 			return;
 		}
-
+		// Se comunica con el modelo
 		Pelicula pelicula = new Pelicula();
 
 		DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -88,6 +88,7 @@ public class InsertarPeliculaController extends HttpServlet {
 				} else {
 					String nombreCampo = fi.getFieldName();
 					String valorCampo = fi.getString();
+					// Se obtienen los parametros
 					switch (nombreCampo) {
 					case "nombre":
 						pelicula.setNombre(valorCampo);
@@ -112,6 +113,7 @@ public class InsertarPeliculaController extends HttpServlet {
 			System.out.println(e);
 		}
 		DAOFactory.getFactory().getPeliculaDAO().create(pelicula);
+		// Se envia a la vista
 		response.sendRedirect("ListarPeliculasController");
 
 	}

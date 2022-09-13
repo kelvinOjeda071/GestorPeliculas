@@ -42,18 +42,18 @@
 					</legend>
 					<div class="mb-3">
 						<p class="form-label">Tipo de usuario</p>
-						<select name="tipo" id="tipo" class="form-select">
+						<select name="tipo" id="tipo" class="form-select" required>
 							<option value="Administrador">Administrador</option>
 							<option value="Usuario">Usuario</option>
 						</select>
 					</div>
 					<div class="mb-3">
 						<p class="form-label">Correo</p>
-						<input type="text" name="correo" class="form-control" />
+						<input type="text" name="correo" class="form-control" required/>
 					</div>
 					<div class="mb-3">
 						<p class="form-label">Password</p>
-						<input type="password" name="password" class="form-control" />
+						<input type="password" name="password" class="form-control" required/>
 					</div>
 					<br> <input type="submit" class="btn btn-dark"
 						value="Ingresar " /> <br> <br>

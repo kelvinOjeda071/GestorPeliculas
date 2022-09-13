@@ -30,17 +30,17 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		Persona personaAutorizada = null;
-		// 1.- Obtener los parámetros
+		// Obtener los parámetros
 		String correo = request.getParameter("correo");
 		String password = request.getParameter("password");
 		String tipo = request.getParameter("tipo");
 
-		// 2.- Me comunico con el Modelo
+		// Me comunico con el Modelo
 		personaAutorizada = DAOFactory.getFactory().getPersonaDAO().autorinzarPersona(correo, password, tipo);
 		System.out.println(correo);
 		System.out.println(password);
 		System.out.println(tipo);
-		// 3.- Redirecciono a la Vista
+		// Redirecciono a la Vista
 		if (personaAutorizada != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("usuarioLogeado", personaAutorizada);
@@ -49,6 +49,7 @@ public class LoginController extends HttpServlet {
 			request.getRequestDispatcher("/ListarPeliculasController").forward(request, response);
 
 		} else {
+			// Se muestra un alert especificando las credenciales inválidas del usuario y redireccionando a la vista
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('El usuario o la contraseña ya no son válidas');");
 			out.println("location='jsp/login.jsp';");

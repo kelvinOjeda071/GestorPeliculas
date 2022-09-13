@@ -35,7 +35,7 @@
                                 <input class="form-control" type="number" name="calificacion" min="0" max="5" value="${pelicula.calificacion }" required />
                             </div>
                             <div class="mb-3">
-                                <p class=" form-label">Fecha de estreno</p>
+                                <p class=" form-label">Año de estreno</p>
                                 <input class=" form-control" type="number" name="anio" id="anio" min=" 1900" step=" 1" value="${pelicula.anioPublicacion}" required />
                             </div>
                             <div class=" mb-3">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="mb-3">
                                 <p class="form-label">Estado</p>
-                                <select class="form-select" name="estado" requered>
+                                <select class="form-select" name="estado" required>
                                         <option value="Disponible" ${pelicula.estado=="Disponible" ?" selected" : '' }>
                                             Disponible
                                         </option>

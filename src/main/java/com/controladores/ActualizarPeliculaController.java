@@ -20,8 +20,11 @@ public class ActualizarPeliculaController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Se obtienen los parametros
 		int idPelicula = Integer.parseInt(request.getParameter("idPelicula"));
+		// Se comunica con el modelo
 		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(idPelicula);
+		// Se envia a la vista
 		request.setAttribute("pelicula", pelicula);
 		request.getRequestDispatcher("/jsp/actualizarPelicula.jsp").forward(request, response);
 		System.out.println("Actualizar pelicula");
@@ -29,13 +32,15 @@ public class ActualizarPeliculaController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Se obtienen los parametros
 		int idPelicula = Integer.parseInt(request.getParameter("id"));
 		String nombrePelicula = request.getParameter("nombre");
 		int calificacion = Integer.parseInt(request.getParameter("calificacion"));
 		int anio = Integer.parseInt(request.getParameter("anio"));
 		String genero = request.getParameter("genero");
 		String estado = request.getParameter("estado");
-
+		
+		// Se comunica con el modelo
 		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(idPelicula);
 		pelicula.setId(idPelicula);
 		pelicula.setNombre(nombrePelicula);
@@ -50,6 +55,7 @@ public class ActualizarPeliculaController extends HttpServlet {
 		}
 		pelicula.setEstado(estado);
 		DAOFactory.getFactory().getPeliculaDAO().update(pelicula);
+		// Se envia a la vista
 		request.getRequestDispatcher("/ListarPeliculasController").forward(request, response);
 		System.out.println("llega al post");
 	}

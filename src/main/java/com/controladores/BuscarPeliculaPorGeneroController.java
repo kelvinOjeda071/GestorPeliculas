@@ -25,8 +25,11 @@ public class BuscarPeliculaPorGeneroController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Se obtienen los parametros
 		String genero = request.getParameter("genero");
+		// Se comunica con el modelo
 		List<Pelicula> peliculasPorGenero = DAOFactory.getFactory().getPeliculaDAO().getPeliculasPorGenero(genero);
+		// Se envia a la vista
 		request.setAttribute("peliculasPorGenero", peliculasPorGenero);
 		doGet(request, response);
 		
