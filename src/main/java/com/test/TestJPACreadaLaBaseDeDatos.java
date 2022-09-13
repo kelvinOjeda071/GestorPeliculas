@@ -1,7 +1,8 @@
 package com.test;
 
+import java.util.List;
+
 import com.entidades.Pelicula;
-import com.entidades.Persona;
 import com.entidades.dao.DAOFactory;
 
 public class TestJPACreadaLaBaseDeDatos {
@@ -14,13 +15,17 @@ public class TestJPACreadaLaBaseDeDatos {
 //		for (Pelicula pelicula : peliculas) {
 //			System.out.println(pelicula);
 //		}
-		Persona persona = DAOFactory.getFactory().getPersonaDAO().getById(1);
-		System.out.println(persona);
-		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(1);
-		System.out.println(pelicula);
+//		Persona persona = DAOFactory.getFactory().getPersonaDAO().getById(1);
+//		System.out.println(persona);
+//		Pelicula pelicula = DAOFactory.getFactory().getPeliculaDAO().getById(1);
+//		System.out.println(pelicula);
 //		pelicula.setAlquilador(persona);
 //		DAOFactory.getFactory().getPeliculaDAO().update(pelicula);
-		DAOFactory.getFactory().getPeliculaDAO().setAlquilador(pelicula.getId(), persona);
+//		DAOFactory.getFactory().getPeliculaDAO().setAlquilador(pelicula.getId(), persona);
+		List<Pelicula> peliculasPorGenero = DAOFactory.getFactory().getPeliculaDAO().getPeliculasPorGenero("Documental");
+		for (Pelicula pelicula : peliculasPorGenero) {
+			System.out.println(pelicula);
+		}
 	}
 
 }

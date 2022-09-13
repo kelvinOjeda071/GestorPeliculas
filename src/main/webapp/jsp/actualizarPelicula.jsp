@@ -48,7 +48,7 @@
 					<select name="genero" id="genero" required
 						oninvalid="this.setCustomValidity('Por favor seleccione un género de película')">
 						<option value="Acción"
-							${pelicula.genero=="Acción" ? "selected" : '' }>Acción</option>
+							${pelicula.genero=="Accion" ? "selected" : '' }>Acción</option>
 						<option value="Comedia"
 							${pelicula.genero=="Comedia" ? "selected" : '' }>Comedia</option>
 						<option value="Drama"
@@ -56,7 +56,7 @@
 						<option value="Terror"
 							${pelicula.genero=="Terror" ? "selected" : '' }>Terror</option>
 						<option value="Ciencia Ficción"
-							${pelicula.genero=="Ciencia Ficción" ? "selected" : '' }>Ciencia
+							${pelicula.genero=="Ciencia Ficcion" ? "selected" : '' }>Ciencia
 							Ficción</option>
 						<option value="Romance"
 							${pelicula.genero=="Romance" ? "selected" : '' }>Romance</option>

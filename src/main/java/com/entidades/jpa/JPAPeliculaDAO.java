@@ -44,4 +44,22 @@ public class JPAPeliculaDAO extends JPAGenericDAO<Pelicula, Integer> implements 
 		
 	}
 
+	@Override
+	public List<Pelicula> getPeliculasPorGenero(String genero) {
+		String sentenciaJPQL = "SELECT p FROM Pelicula p WHERE p.estado = :p1 AND p.genero = :p2";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", "Disponible");
+		query.setParameter("p2", genero);
+		return (List<Pelicula>) query.getResultList();
+	}
+
+	@Override
+	public List<Pelicula> getPeliculasPorNombre(String nombre) {
+		String sentenciaJPQL = "SELECT p FROM Pelicula p WHERE p.estado = :p1 AND p.nombre = :p2";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("p1", "Disponible");
+		query.setParameter("p2", nombre);
+		return (List<Pelicula>) query.getResultList();
+	}
+
 }

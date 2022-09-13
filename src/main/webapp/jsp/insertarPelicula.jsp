@@ -41,11 +41,11 @@
 					<p>Género</p>
 					<select name="genero" id="genero" required
 						oninvalid="this.setCustomValidity('Por favor seleccione un género de película')">
-						<option value="Acción">Acción</option>
+						<option value="Accion">Accion</option>
 						<option value="Comedia">Comedia</option>
 						<option value="Drama">Drama</option>
 						<option value="Terror">Terror</option>
-						<option value="Ciencia Ficción">Ciencia Ficción</option>
+						<option value="Ciencia Ficcion">Ciencia Ficcion</option>
 						<option value="Romance">Romance</option>
 						<option value="Musical">Musical</option>
 						<option value="Documental">Documental</option>

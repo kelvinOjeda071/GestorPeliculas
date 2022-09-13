@@ -32,13 +32,8 @@ td {
 <body>
 
 
-	<%@include file="../templates/banner_interno.html"%>
+	<%@include file="../templates/banner_usuario.html"%>
 
-
-	<h1>Listado de Películas</h1>
-	<div>
-		<a href="ListarPeliculasController">Lista de películas</a>
-	</div>
 
 	<div class="wrapper">
 		<table class="table table-striped">

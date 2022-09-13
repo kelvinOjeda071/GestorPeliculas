@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Listar Películas</title>
+<title>Listar Películas por genero</title>
 <style>
 table, th, td {
 	border: 1px solid black;
@@ -33,7 +33,7 @@ td {
 
 
 	<%@include file="../templates/banner_usuario.html"%>
-	
+
 
 	<div class="wrapper">
 		<table class="table table-striped">
@@ -49,7 +49,7 @@ td {
 				</tr>
 			</thead>
 
-			<c:forEach items="${peliculas}" var="pelicula">
+			<c:forEach items="${peliculasPorNombre}" var="pelicula">
 				<tr>
 
 					<td>${pelicula.id}</td>
